@@ -8,6 +8,17 @@
   </div>
 </template>
 
+<script>
+import { ipcRenderer } from 'electron';
+export default {
+  mounted() {
+    ipcRenderer.on('message', (event, message) => {
+      console.log(message);
+    });
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
